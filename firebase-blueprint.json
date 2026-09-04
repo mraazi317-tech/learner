@@ -1,0 +1,346 @@
+{
+  "project": "easialearn-edtech",
+  "version": "1.0.0",
+  "collections": [
+    {
+      "name": "users",
+      "description": "Base user profiles for all roles",
+      "fields": {
+        "uid": "string",
+        "role": "string (student | teacher | admin | institution)",
+        "fullName": "string",
+        "name": "string",
+        "username": "string",
+        "email": "string",
+        "phone": "string",
+        "whatsapp": "string?",
+        "guardianName": "string?",
+        "school": "string?",
+        "institution": "string?",
+        "class": "string?",
+        "subject": "string?",
+        "state": "string?",
+        "photoURL": "string?",
+        "easiacode": "string",
+        "trialEndsAt": "string",
+        "createdAt": "string",
+        "status": "string (Verified | Active | Blocked | Pro)"
+      }
+    },
+    {
+      "name": "profiles",
+      "description": "Public and internal comprehensive user profile mirror",
+      "fields": {
+        "uid": "string",
+        "profileId": "string",
+        "role": "string",
+        "fullName": "string",
+        "username": "string",
+        "email": "string",
+        "phone": "string",
+        "whatsapp": "string?",
+        "guardianName": "string?",
+        "school": "string?",
+        "institution": "string?",
+        "class": "string?",
+        "subject": "string?",
+        "qualification": "string?",
+        "experience": "string?",
+        "state": "string?",
+        "photoURL": "string?",
+        "easiacode": "string",
+        "trialEndsAt": "string",
+        "createdAt": "string",
+        "status": "string"
+      }
+    },
+    {
+      "name": "students",
+      "description": "Extended student profiles",
+      "fields": {
+        "uid": "string",
+        "phone": "string",
+        "whatsapp": "string",
+        "telegram": "string",
+        "schoolName": "string",
+        "class": "string",
+        "medium": "string",
+        "state": "string"
+      }
+    },
+    {
+      "name": "teachers",
+      "description": "Extended teacher profiles",
+      "fields": {
+        "uid": "string",
+        "phone": "string",
+        "whatsapp": "string",
+        "telegram": "string",
+        "institution": "string",
+        "subject": "string",
+        "qualification": "string",
+        "inviteCode": "string"
+      }
+    },
+    {
+      "name": "institutions",
+      "description": "Extended institution profiles",
+      "fields": {
+        "uid": "string",
+        "institutionName": "string",
+        "principalName": "string",
+        "phone": "string",
+        "whatsapp": "string",
+        "address": "string"
+      }
+    },
+    {
+      "name": "teacher_connections",
+      "description": "Link between teachers and students",
+      "fields": {
+        "id": "string",
+        "teacherId": "string",
+        "studentId": "string",
+        "status": "string (pending | approved | rejected)",
+        "createdAt": "timestamp"
+      }
+    },
+    {
+      "name": "messages",
+      "description": "Realtime chat messages between connected teachers and students",
+      "fields": {
+        "id": "string",
+        "senderId": "string",
+        "receiverId": "string",
+        "text": "string?",
+        "attachmentUrl": "string?",
+        "attachmentType": "string?",
+        "read": "boolean",
+        "createdAt": "timestamp"
+      }
+    },
+    {
+      "name": "chat_sessions",
+      "description": "AI Tutor chat sessions",
+      "fields": {
+        "id": "string",
+        "userId": "string",
+        "title": "string",
+        "pinned": "boolean",
+        "createdAt": "timestamp",
+        "updatedAt": "timestamp"
+      }
+    },
+    {
+      "name": "chat_messages",
+      "description": "AI Tutor messages within a session",
+      "fields": {
+        "id": "string",
+        "sessionId": "string",
+        "userId": "string",
+        "sender": "string (user | assistant)",
+        "text": "string",
+        "createdAt": "timestamp"
+      }
+    },
+    {
+      "name": "mock_tests",
+      "description": "Exams created by admin or teachers",
+      "fields": {
+        "id": "string",
+        "title": "string",
+        "subject": "string",
+        "totalQuestions": "number",
+        "durationMinutes": "number",
+        "totalMarks": "number",
+        "negativeMarking": "boolean",
+        "createdBy": "string",
+        "createdAt": "timestamp"
+      }
+    },
+    {
+      "name": "results",
+      "description": "Student mock test results",
+      "fields": {
+        "id": "string",
+        "studentId": "string",
+        "testId": "string",
+        "score": "number",
+        "createdAt": "timestamp"
+      }
+    },
+    {
+      "name": "pro_requests",
+      "description": "Requests to upgrade to Pro",
+      "fields": {
+        "id": "string",
+        "userId": "string",
+        "name": "string",
+        "username": "string",
+        "easiacode": "string",
+        "role": "string",
+        "phone": "string",
+        "email": "string",
+        "status": "string (Pending | Approved | Rejected)",
+        "createdAt": "timestamp"
+      }
+    },
+    {
+      "name": "notifications",
+      "description": "Realtime notifications for users",
+      "fields": {
+        "id": "string",
+        "userId": "string",
+        "title": "string",
+        "body": "string",
+        "read": "boolean",
+        "type": "string",
+        "createdAt": "timestamp"
+      }
+    },
+    {
+      "name": "certificates",
+      "description": "Certificates for students",
+      "fields": {
+        "id": "string",
+        "studentId": "string",
+        "title": "string",
+        "issuedAt": "timestamp"
+      }
+    },
+    {
+      "name": "teacher_exams",
+      "description": "CBT exams created by teachers for students via EasiaCode",
+      "fields": {
+        "id": "string",
+        "examCode": "string",
+        "title": "string",
+        "subject": "string",
+        "durationMinutes": "number",
+        "totalMarks": "number",
+        "assignedStudentCodes": "array",
+        "teacherId": "string"
+      }
+    },
+    {
+      "name": "quizzes",
+      "description": "Quizzes created by teachers for students via EasiaCode",
+      "fields": {
+        "id": "string",
+        "quizCode": "string",
+        "title": "string",
+        "subject": "string",
+        "marks": "number",
+        "timer": "number",
+        "assignedStudentCodes": "array"
+      }
+    },
+    {
+      "name": "exam_submissions",
+      "description": "Student exam submissions and scores",
+      "fields": {
+        "id": "string",
+        "examId": "string",
+        "studentId": "string",
+        "studentEasiaCode": "string",
+        "score": "number",
+        "totalMarks": "number"
+      }
+    },
+    {
+      "name": "subscriptions",
+      "description": "User subscriptions and memberships (Free, Pro, Ultra, Annual)",
+      "fields": {
+        "id": "string",
+        "userId": "string",
+        "plan": "string",
+        "price": "number",
+        "status": "string",
+        "validUntil": "string"
+      }
+    },
+    {
+      "name": "pricing_plans",
+      "description": "Platform subscription pricing plans configured by Admin",
+      "fields": {
+        "id": "string",
+        "name": "string",
+        "price": "number",
+        "billingCycle": "string",
+        "features": "array"
+      }
+    },
+    {
+      "name": "analytics",
+      "description": "Platform analytics",
+      "fields": {}
+    },
+    {
+      "name": "settings",
+      "description": "Platform settings",
+      "fields": {}
+    },
+    {
+      "name": "subjects",
+      "description": "Subjects list",
+      "fields": {}
+    },
+    {
+      "name": "chapters",
+      "description": "Chapters list",
+      "fields": {}
+    },
+    {
+      "name": "live_classes",
+      "description": "Live classrooms scheduled and conducted by teachers",
+      "fields": {
+        "id": "string",
+        "classId": "string",
+        "title": "string",
+        "subject": "string",
+        "description": "string?",
+        "date": "string",
+        "startTime": "string",
+        "endTime": "string",
+        "duration": "number",
+        "teacherId": "string",
+        "teacherName": "string",
+        "assignedStudentCodes": "array",
+        "thumbnailUrl": "string?",
+        "status": "string (upcoming | live | completed)",
+        "createdAt": "timestamp"
+      }
+    },
+    {
+      "name": "class_participants",
+      "description": "Participants in a live classroom session",
+      "fields": {
+        "id": "string",
+        "classId": "string",
+        "userId": "string",
+        "userName": "string",
+        "userRole": "string",
+        "joinedAt": "timestamp",
+        "isAudioMuted": "boolean",
+        "isVideoMuted": "boolean",
+        "isHandRaised": "boolean"
+      }
+    },
+    {
+      "name": "attendance",
+      "description": "Attendance log for live classes",
+      "fields": {
+        "id": "string",
+        "classId": "string",
+        "classTitle": "string",
+        "studentId": "string",
+        "studentName": "string",
+        "studentEasiaCode": "string",
+        "date": "string",
+        "durationAttendedMinutes": "number",
+        "status": "string (Present | Late | Absent)",
+        "markedAt": "timestamp"
+      }
+    }
+  ]
+}

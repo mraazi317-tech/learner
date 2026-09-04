@@ -1,0 +1,6 @@
+{
+  "name": "EasiaLearn",
+  "description": "Complete production-ready EdTech SaaS platform for SSLC, PUC & competitive exams with AI tutor, CBT mock tests, student/teacher/admin portals, and learning analytics.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
